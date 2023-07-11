@@ -49,7 +49,7 @@ public class User {
 	@Transient
 	@NotEmpty(message = "Confirm Password is required!")
 	@Size(min = 8, max = 28, message = "Confirm Password must be between 8 and 28 characters")
-	private String confirm;
+	private String confirmPassword;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -108,12 +108,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getConfirm() {
-		return confirm;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
 
-	public void setConfirm(String confirm) {
-		this.confirm = confirm;
+	public void setConfirmPassword(String confirm) {
+		this.confirmPassword = confirm;
 	}
 
 	public Date getCreatedAt() {

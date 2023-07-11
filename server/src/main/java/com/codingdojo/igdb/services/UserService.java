@@ -30,7 +30,7 @@ public class UserService {
 			return null;
 		}
 
-		if (!newUser.getPassword().equals(newUser.getConfirm())) {
+		if (!newUser.getPassword().equals(newUser.getConfirmPassword())) {
 			return null;
 		}
 
