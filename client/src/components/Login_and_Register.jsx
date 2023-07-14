@@ -41,7 +41,7 @@ const LoginAndRegister = () => {
             .catch(err => {
                 console.log(err.response.data.message) /*Do something about the errors I am getting so they can be displayed on the page.*/
                 alert("Invalid Register! Please try again.")
-            }) 
+            })
     }
 
     const loginHandler = e => {
@@ -57,63 +57,62 @@ const LoginAndRegister = () => {
             .catch(err => {
                 console.log(err.response.data.message) /*Do something about the errors I am getting so they can be displayed on the page.*/
                 alert("Invalid Login! Please try again.")
-            }) 
+            })
     }
 
     return (
-        <div>
-            <div className='d-flex justify-content-center m-3 p-3 gap-5'>
-                <form className='form-class' onSubmit={registerHandler}>
-                    <h2>Registration</h2>
-                    <div className="form-group">
-                        <label>
-                            Username:
-                            <input type='text' id='userName' name='userName' className="form-control" onChange={onChangeHandlerNewUser} />
-                        </label>
-                    </div>
 
-                    <div className="form-group">
-                        <label>
-                            Email:
-                            <input type='text' id='email' name='email' className="form-control" onChange={onChangeHandlerNewUser} />
-                        </label>
-                    </div>
+        <div className='d-flex justify-content-center m-3 p-3 gap-5'>
+            <form className='form-class' onSubmit={registerHandler}>
+                <h2>Registration</h2>
+                <div className="form-group">
+                    <label>
+                        Username:
+                        <input type='text' id='userName' name='userName' className="form-control" onChange={onChangeHandlerNewUser} />
+                    </label>
+                </div>
 
-                    <div className="form-group">
-                        <label>
-                            Password:
-                            <input type='password' id='password' name='password' className="form-control" onChange={onChangeHandlerNewUser} />
-                        </label>
-                    </div>
+                <div className="form-group">
+                    <label>
+                        Email:
+                        <input type='text' id='email' name='email' className="form-control" onChange={onChangeHandlerNewUser} />
+                    </label>
+                </div>
 
-                    <div className="form-group">
-                        <label>
-                            Confirm Password:
-                            <input type='password' id='confirmPassword' name='confirmPassword' className="form-control" onChange={onChangeHandlerNewUser} />
-                        </label>
-                    </div>
+                <div className="form-group">
+                    <label>
+                        Password:
+                        <input type='password' id='password' name='password' className="form-control" onChange={onChangeHandlerNewUser} />
+                    </label>
+                </div>
 
-                    <button className="btn btn-primary form-button">Register</button>
-                </form>
+                <div className="form-group">
+                    <label>
+                        Confirm Password:
+                        <input type='password' id='confirmPassword' name='confirmPassword' className="form-control" onChange={onChangeHandlerNewUser} />
+                    </label>
+                </div>
 
-                <form className='form-class' onSubmit={loginHandler}>
-                    <h2>Login</h2>
-                    <div className="form-group">
-                        <label>
-                            Email:
-                            <input type='text' id='email' name='email' className="form-control" onChange={onChangeHandlerLoginUser} />
-                        </label>
-                    </div>
+                <button className="btn btn-primary form-button">Register</button>
+            </form>
 
-                    <div className="form-group">
-                        <label>
-                            Password:
-                            <input type='password' id='password' name='password' className="form-control" onChange={onChangeHandlerLoginUser} />
-                        </label>
-                    </div>
-                    <button className="btn btn-primary form-button">Login</button>
-                </form>
-            </div>
+            <form className='form-class' onSubmit={loginHandler}>
+                <h2>Login</h2>
+                <div className="form-group">
+                    <label>
+                        Email:
+                        <input type='text' id='email' name='email' className="form-control" onChange={onChangeHandlerLoginUser} />
+                    </label>
+                </div>
+
+                <div className="form-group">
+                    <label>
+                        Password:
+                        <input type='password' id='password' name='password' className="form-control" onChange={onChangeHandlerLoginUser} />
+                    </label>
+                </div>
+                <button className="btn btn-primary form-button">Login</button>
+            </form>
         </div>
     );
 }

@@ -11,6 +11,14 @@ body{
   padding: 10px;
 }
 
+.nav-button{
+  color: aliceblue;
+}
+
+.nav-button:hover{
+  color: rgb(199, 206, 211);
+}
+
 .btn-primary, .btn-primary:active, .btn-primary:visited {
   background-color: #57bc90 !important;
   border-color: #57bc90;
