@@ -31,27 +31,33 @@ const LoginAndRegister = () => {
     const registerHandler = e => {
         e.preventDefault()
         axios.post('http://localhost:8080/api/user', newUser)
-            .then(res =>
+            .then(res => {
                 Cookies.set('userId', res.data.id, {
-                    expires: 1 / 48
-                }),
-                navigate('/')
-            )
-            /*Do something about the errors I am getting so they can be displayed on the page.*/
-            .catch(err => console.log(err.response.data.message))
+                    expires: 1 / 48,
+                    sameSite: 'strict'
+                })
+                navigate('/home')
+            })
+            .catch(err => {
+                console.log(err.response.data.message) /*Do something about the errors I am getting so they can be displayed on the page.*/
+                alert("Invalid Register! Please try again.")
+            }) 
     }
 
     const loginHandler = e => {
         e.preventDefault()
         axios.post('http://localhost:8080/api/user/login', loginUser)
-            .then(res =>
+            .then(res => {
                 Cookies.set('userId', res.data.id, {
-                    expires: 1 / 48
-                }),
-                navigate('/')
-            )
-            /*Do something about the errors I am getting so they can be displayed on the page.*/
-            .catch(err => console.log(err.response.data.message))
+                    expires: 1 / 48,
+                    sameSite: 'strict'
+                })
+                navigate('/home')
+            })
+            .catch(err => {
+                console.log(err.response.data.message) /*Do something about the errors I am getting so they can be displayed on the page.*/
+                alert("Invalid Login! Please try again.")
+            }) 
     }
 
     return (
