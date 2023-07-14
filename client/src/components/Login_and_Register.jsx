@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const LoginAndRegister = () => {
 
@@ -31,7 +32,22 @@ const LoginAndRegister = () => {
         e.preventDefault()
         axios.post('http://localhost:8080/api/user', newUser)
             .then(res =>
-                /*somehow store res.data.id into session so we have the current user id.*/
+                Cookies.set('userId', res.data.id, {
+                    expires: 1 / 48
+                }),
+                navigate('/')
+            )
+            /*Do something about the errors I am getting so they can be displayed on the page.*/
+            .catch(err => console.log(err.response.data.message))
+    }
+
+    const loginHandler = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:8080/api/user/login', loginUser)
+            .then(res =>
+                Cookies.set('userId', res.data.id, {
+                    expires: 1 / 48
+                }),
                 navigate('/')
             )
             /*Do something about the errors I am getting so they can be displayed on the page.*/
@@ -74,7 +90,7 @@ const LoginAndRegister = () => {
                     <button className="btn btn-primary form-button">Register</button>
                 </form>
 
-                <form className='form-class'>
+                <form className='form-class' onSubmit={loginHandler}>
                     <h2>Login</h2>
                     <div className="form-group">
                         <label>
