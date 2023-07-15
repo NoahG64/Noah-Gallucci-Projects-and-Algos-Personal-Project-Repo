@@ -49,7 +49,7 @@ const LoginAndRegister = () => {
         axios.post('http://localhost:8080/api/user/login', loginUser)
             .then(res => {
                 Cookies.set('userId', res.data.id, {
-                    expires: 1 / 48,
+                    expires: 1,
                     sameSite: 'strict'
                 })
                 navigate('/home')

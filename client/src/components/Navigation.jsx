@@ -12,7 +12,7 @@ const Navigation = () => {
             {
                 location.pathname !== "/" ?
                 <div>
-                    <Link to={'/addGame'} className='nav-button'>Add a Game</Link>
+                    <Link to={'/home'} className='nav-button'>Home</Link> | <Link to={'/addGame'} className='nav-button'>Add a Game</Link> | <Link to={'/logout'} className='nav-button'>Logout</Link>
                 </div> : <div></div>
             }
         </div>

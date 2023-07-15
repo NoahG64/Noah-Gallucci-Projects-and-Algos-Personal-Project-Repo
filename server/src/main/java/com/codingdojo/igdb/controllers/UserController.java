@@ -40,9 +40,16 @@ public class UserController {
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping("/api/user/login")
+	@PostMapping("/api/user/login")
 	public ResponseEntity<User> loginUser(@RequestBody LoginUser loginUser){
-		return new ResponseEntity<>(userService.login(loginUser), HttpStatus.OK);
+		
+		User loggingInUser = userService.login(loginUser);
+		
+		if(loggingInUser != null) {
+			return new ResponseEntity<>(loggingInUser, HttpStatus.OK);			
+		}
+		
+		return new ResponseEntity<>(loggingInUser, HttpStatus.BAD_REQUEST);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000")

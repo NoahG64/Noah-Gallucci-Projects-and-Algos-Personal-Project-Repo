@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -8,7 +7,7 @@ const AddGame = () => {
 
     const navigate = useNavigate()
 
-    const [newGame, setNewGame] = useState()
+    const [newGame, setNewGame] = useState({})
 
     /*If userId is not in session, send back to login & register*/
     const cookieChecker = () => {
@@ -36,6 +35,14 @@ const AddGame = () => {
 
     useEffect(() => {
         cookieChecker()
+
+        axios.get(`http://localhost:8080/api/user/${Cookies.get(`userId`)}`)
+            .then(res => {
+                setNewGame({ ...newGame, poster : res.data })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }, [])
 
     return (

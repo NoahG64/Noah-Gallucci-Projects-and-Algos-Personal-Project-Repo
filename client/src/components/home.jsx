@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -31,12 +31,15 @@ const Home = () => {
 
     return (
         <div>
-            <h2>Home page</h2>
-            {
-                allGames.map(game => (
-                    <p key={game.id}>Title: {game.title}</p>
-                ))
-            }
+            <h2>All Games</h2>
+
+            <div className='d-flex justify-content-center m-3 p-3 gap-5'>
+                {
+                    allGames.map(game => (
+                        <span key={game.id}><Link to={`/gameDetails/${game.id}`}>{game.title}</Link></span>
+                    ))
+                }
+            </div>
         </div>
     );
 }

@@ -44,7 +44,7 @@ public class UserService {
 
 		Optional<User> potentialUser = userRepo.findByEmail(loginUser.getEmail());
 
-		if (!potentialUser.isPresent()) {
+		if (potentialUser.isEmpty()) {
 			return null;
 		}
 
@@ -53,7 +53,7 @@ public class UserService {
 		if (!BCrypt.checkpw(loginUser.getPassword(), userFromDb.getPassword())) {
 			return null;
 		}
-
+		
 		return userFromDb;
 	}
 
