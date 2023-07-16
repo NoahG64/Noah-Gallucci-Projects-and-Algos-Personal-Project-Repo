@@ -5,10 +5,10 @@ import Cookies from 'js-cookie';
 
 const GameDetails = () => {
 
+    const navigate = useNavigate()
+
     const { gameId } = useParams()
     const [currentGame, setCurrentGame] = useState({})
-
-    const navigate = useNavigate()
 
     /*If userId is not in session, send back to login & register*/
     const cookieChecker = () => {
@@ -46,9 +46,9 @@ const GameDetails = () => {
             }
 
             {
-                currentGame.poster_id === Cookies.get(`userId`) ?
-                <p>You posted this!</p> :
-                null
+                currentGame.poster.id === Cookies.get(`userId`)?
+                    <p>You posted this!</p> :
+                    null
             }
         </div>
     );

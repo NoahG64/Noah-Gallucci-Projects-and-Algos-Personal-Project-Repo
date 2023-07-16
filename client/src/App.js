@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AddGame from './components/AddGame';
 import GameDetails from './components/GameDetails';
 import Logout from './components/Logout';
+import EditGame from './components/EditGame';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 				<Route element={<Logout />} path='/logout' />
 				<Route element={<AddGame />} path='/addGame' />
 				<Route element={<GameDetails />} path='/gameDetails/:gameId' />
+				<Route element={<EditGame />} path='/editGame/:gameId' />
 			</Routes>
 		</BrowserRouter>
 	);
