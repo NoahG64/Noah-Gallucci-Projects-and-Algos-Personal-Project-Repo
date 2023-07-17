@@ -55,7 +55,8 @@ public class GameController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	@ResponseStatus(HttpStatus.OK)
 	@DeleteMapping("/api/game/{id}")
-	public void deleteGame(@PathVariable("id")Long id) {
+	public ResponseEntity<String> deleteGame(@PathVariable("id")Long id) {
 		gameService.deleteGame(id);
+		return new ResponseEntity<>("Game Deleted", HttpStatus.OK);
 	}
 }

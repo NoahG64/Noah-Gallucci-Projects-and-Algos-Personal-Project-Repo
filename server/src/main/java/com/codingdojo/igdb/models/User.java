@@ -60,10 +60,10 @@ public class User {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
-	@OneToMany(mappedBy="poster", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="poster", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JsonIgnore
 	private List<Game> games;
 	
-	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "favorites", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
 	private List<Game> favoriteGames;
