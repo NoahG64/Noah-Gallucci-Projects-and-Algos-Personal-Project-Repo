@@ -7,6 +7,7 @@ import AddGame from './components/AddGame';
 import GameDetails from './components/GameDetails';
 import Logout from './components/Logout';
 import EditGame from './components/EditGame';
+import DeleteGame from './components/DeleteGame';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 				<Route element={<AddGame />} path='/addGame' />
 				<Route element={<GameDetails />} path='/gameDetails/:gameId' />
 				<Route element={<EditGame />} path='/editGame/:gameId' />
+				<Route element={<DeleteGame />} path='/deleteGame/:gameId' />
 			</Routes>
 		</BrowserRouter>
 	);
