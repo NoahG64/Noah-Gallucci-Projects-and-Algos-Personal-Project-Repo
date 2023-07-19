@@ -8,6 +8,7 @@ import GameDetails from './components/GameDetails';
 import Logout from './components/Logout';
 import EditGame from './components/EditGame';
 import DeleteGame from './components/DeleteGame';
+import UserPage from './components/UserPage';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 				<Route element={<GameDetails />} path='/gameDetails/:gameId' />
 				<Route element={<EditGame />} path='/editGame/:gameId' />
 				<Route element={<DeleteGame />} path='/deleteGame/:gameId' />
+				<Route element={<UserPage />} path='/userPage/:userId' />
 			</Routes>
 		</BrowserRouter>
 	);
