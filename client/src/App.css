@@ -1,5 +1,5 @@
 body{
-  background-color: #77c9d4;
+  background-color: #0bc5de;
   text-align: center;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: aliceblue;
@@ -9,6 +9,14 @@ body{
   background: rgb(0,212,255);
   background: linear-gradient(180deg, rgba(0,212,255,1) 0%, rgba(4,121,195,1) 45%, rgba(4,32,195,1) 100%); 
   padding: 10px;
+}
+
+.nav-button{
+  color: aliceblue;
+}
+
+.nav-button:hover{
+  color: rgb(199, 206, 211);
 }
 
 .btn-primary, .btn-primary:active, .btn-primary:visited {

@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -62,6 +63,10 @@ public class Game {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "poster_id")
+	private User poster;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "favorites", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
@@ -157,5 +162,13 @@ public class Game {
 
 	public void setFavoritedBy(List<User> favoritedBy) {
 		this.favoritedBy = favoritedBy;
+	}
+
+	public User getPoster() {
+		return poster;
+	}
+
+	public void setPoster(User poster) {
+		this.poster = poster;
 	}
 }
